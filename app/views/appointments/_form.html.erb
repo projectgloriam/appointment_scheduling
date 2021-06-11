@@ -1,0 +1,86 @@
+<%= simple_form_for appointment, class: 'squirrel', data: { squirrel: "appointment" } do |form| %>
+  <% if appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.input_field :start_time, as: :string, "data-role" =>"calendarpicker", "data-dialog-mode" =>"true", "data-on-change" =>"timestamp($(this));" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time_expected %>
+    <input data-role="timepicker" id="picktime">
+    <%= form.input_field :end_time_expected, as: :string, "data-role" =>"calendarpicker", "data-dialog-mode" =>"true", "data-on-change" =>"set_end_time($(this));" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.input_field :end_time, as: :string, "data-role" =>"calendarpicker", "data-dialog-mode" =>"true", "data-on-change" =>"timestamp($(this));" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cancelled %>
+    <%= form.input_field :cancelled, "data-role" =>"checkbox" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cancelled_reason %>
+    <%= form.input_field :cancelled_reason, as: :text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appointment_type %>
+    <%= form.input_field :appointment_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.input_field :patient_id, :collection => @patients, class: 'select_search' %>
+    <%= link_to 'New Patient', new_patient_path(:source => request.original_url), :class => "button link" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_dismissal_id %>
+    <%= form.input_field :patient_dismissal_id, :collection => @patient_dismissals, class: 'select_search' %>
+    <%= link_to 'New Dismissal Message', new_patient_dismissal_path(:source => request.original_url), :class => "button link" %>
+  </div>
+
+  <div class="field">
+    <%= form.input_field :user_id, as: :hidden %>
+  </div>
+
+  <div class="actions">
+    <%= form.button :submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  function timestamp(el){
+    var date = new Date(); 
+    el.val(date.format('%Y-%m-%d %H:%M:%S'));
+  }
+
+  function set_end_time(el){
+    var date = new Date(); 
+    el.val(date.format('%Y-%m-%d') + " " + $("#picktime").val());
+  }
+
+  $(function(){
+    $("form").squirrel();
+
+    $('.select_search').select2({
+      minimumResultsForSearch: 10, // at least 10 results must be displayed
+      placeholder: "Search...",
+      minimumInputLength: 3
+    });
+  });
+</script>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encounter_primary_physician: MyString
+  encounter_disposition: MyString
+  body_temperature: MyString
+  blood_pressure: MyString
+  random_blood_sugar: MyString
+  pulse: MyString
+  appointment: one
+  patient: one
+  service_type: one
+  service_location: one
+
+two:
+  encounter_primary_physician: MyString
+  encounter_disposition: MyString
+  body_temperature: MyString
+  blood_pressure: MyString
+  random_blood_sugar: MyString
+  pulse: MyString
+  appointment: two
+  patient: two
+  service_type: two
+  service_location: two

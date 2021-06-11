@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2019-07-24 16:00:36
+  end_time_expected: 2019-07-24 16:00:36
+  end_time: 2019-07-24 16:00:36
+  cancelled: false
+  cancelled_reason: MyText
+  appointment_type: MyString
+  patient: one
+  patient_dismissal: one
+  user: one
+
+two:
+  start_time: 2019-07-24 16:00:36
+  end_time_expected: 2019-07-24 16:00:36
+  end_time: 2019-07-24 16:00:36
+  cancelled: false
+  cancelled_reason: MyText
+  appointment_type: MyString
+  patient: two
+  patient_dismissal: two
+  user: two

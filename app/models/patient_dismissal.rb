@@ -1,0 +1,2 @@
+class PatientDismissal < ApplicationRecord
+end

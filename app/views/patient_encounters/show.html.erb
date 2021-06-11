@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Encounter primary physician:</strong>
+  <%= @patient_encounter.encounter_primary_physician %>
+</p>
+
+<p>
+  <strong>Encounter disposition:</strong>
+  <%= @patient_encounter.encounter_disposition %>
+</p>
+
+<p>
+  <strong>Body temperature:</strong>
+  <%= @patient_encounter.body_temperature %>
+</p>
+
+<p>
+  <strong>Blood pressure:</strong>
+  <%= @patient_encounter.blood_pressure %>
+</p>
+
+<p>
+  <strong>Random blood sugar:</strong>
+  <%= @patient_encounter.random_blood_sugar %>
+</p>
+
+<p>
+  <strong>Pulse:</strong>
+  <%= @patient_encounter.pulse %>
+</p>
+
+<p>
+  <strong>Appointment:</strong>
+  <%= @patient_encounter.appointment %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @patient_encounter.patient %>
+</p>
+
+<p>
+  <strong>Service type:</strong>
+  <%= @patient_encounter.service_type %>
+</p>
+
+<p>
+  <strong>Service location:</strong>
+  <%= @patient_encounter.service_location %>
+</p>
+
+<%= link_to 'Edit', edit_patient_encounter_path(@patient_encounter) %> |
+<%= link_to 'Back', patient_encounters_path %>

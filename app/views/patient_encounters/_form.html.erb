@@ -1,0 +1,81 @@
+<%= simple_form_for patient_encounter, class: 'squirrel', data: { squirrel: "patient_encounter" } do |form| %>
+  <% if patient_encounter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient_encounter.errors.count, "error") %> prohibited this patient_encounter from being saved:</h2>
+
+      <ul>
+      <% patient_encounter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :encounter_primary_physician %>
+    <%= form.input_field :encounter_primary_physician %>
+  </div>
+
+  <div class="field">
+    <%= form.label :encounter_disposition %>
+    <%= form.input_field :encounter_disposition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body_temperature %>
+    <%= form.input_field :body_temperature %>
+  </div>
+
+  <div class="field">
+    <%= form.label :blood_pressure %>
+    <%= form.input_field :blood_pressure %>
+  </div>
+
+  <div class="field">
+    <%= form.label :random_blood_sugar %>
+    <%= form.input_field :random_blood_sugar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pulse %>
+    <%= form.input_field :pulse %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appointment_id %>
+    <%= form.input_field :appointment_id, :collection => @appointments, class: 'select_search' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.input_field :patient_id, as: :hidden %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_type_id %>
+    <%= form.input_field :service_type_id, :collection => @service_types, class: 'select_search' %>
+    <%= link_to 'New Service Type', new_service_type_path(:source => request.original_url), :class => "button link" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_location_id %>
+    <%= form.input_field :service_location_id, :collection => @service_locations, class: 'select_search' %>
+    <%= link_to 'New Service Location', new_service_location_path(:source => request.original_url), :class => "button link" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+    $(function(){
+      $("form").squirrel();
+
+      $('.select_search').select2({
+        minimumResultsForSearch: 10, // at least 10 results must be displayed
+        placeholder: "Search...",
+        minimumInputLength: 3
+      });
+    });
+</script>

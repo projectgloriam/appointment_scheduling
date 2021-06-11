@@ -1,0 +1,77 @@
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_birth %>
+    <%= form.date_select :date_of_birth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :race %>
+    <%= form.text_field :race %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ethnicity %>
+    <%= form.text_field :ethnicity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telephone_number %>
+    <%= form.text_field :telephone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :previous_names %>
+    <%= form.text_field :previous_names %>
+  </div>
+
+  <div class="field">
+    <%= form.label :national_ID %>
+    <%= form.text_field :national_ID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :NHIS_ID %>
+    <%= form.text_field :NHIS_ID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_first_registration %>
+    <%= form.date_select :date_of_first_registration %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

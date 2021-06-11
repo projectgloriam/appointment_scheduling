@@ -8,7 +8,7 @@ Things you may need:
 
 * Rails version 5.2.2
 
-##How to get started
+## How to get started
 
 Clone the repository:
 ```

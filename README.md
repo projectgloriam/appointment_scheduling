@@ -1,24 +1,36 @@
-# README
+# Appointment Scheduler for Hospitals
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails web app (used by hospital staff) for scheduling appointments for patients with a doctor.
 
-Things you may want to cover:
+Things you may need:
 
-* Ruby version
+* Ruby version 2.3.3
 
-* System dependencies
+* Rails version 5.2.2
 
-* Configuration
+##How to get started
 
-* Database creation
+Clone the repository:
+```
+$ git clone https://github.com/projectgloriam/appointment_scheduling.git 
+```
 
-* Database initialization
+Change to the directory
+```
+$ cd appointment_scheduling
+```
 
-* How to run the test suite
+Install the gems
+```
+$ bundle install 
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Migrate the database:
+```
+$ rails db:migrate
+```
 
-* Deployment instructions
-
-* ...
+Run the app
+```
+$ rails s
+```
